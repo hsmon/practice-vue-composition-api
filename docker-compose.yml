@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - 9050:9050
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - yarn-cache:/usr/local/share/.cache/yarn/v6
+    stdin_open: true
+    tty: true
+    command: /bin/sh
+volumes:
+  yarn-cache:
